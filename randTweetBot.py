@@ -23,8 +23,11 @@ if __name__ == "__main__":
 
     while True:
         with open(argfile) as book:
-            lines = book.readlines()
-            rand_line_num = randint(0, len(lines) - 1)
-            line = lines[rand_line_num]
-            api.update_status(line)
-            time.sleep(180)  # Tweets a random sentence every 3 minutes
+            try
+                lines = book.readlines()
+                rand_line_num = randint(0, len(lines) - 1)
+                line = lines[rand_line_num]
+                api.update_status(line)
+                time.sleep(180)  # Tweets a random sentence every 3 minutes
+            except:
+                pass
